@@ -23,7 +23,7 @@ public:
 
     bool load();
 
-    const std::wstring getAppName() const;
+    std::wstring getAppName() const;
 
 private:
     std::wstring _appName;

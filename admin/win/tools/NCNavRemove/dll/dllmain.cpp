@@ -20,23 +20,23 @@ SimpleMutex g_mutex;
 bool g_alreadyRunning = false;
 
 extern "C" BOOL WINAPI DllMain(
-	__in HINSTANCE hInst,
-	__in ULONG ulReason,
-	__in LPVOID
-	)
+    __in HINSTANCE hInst,
+    __in ULONG ulReason,
+    __in LPVOID
+    )
 {
-	switch(ulReason)
-	{
-	case DLL_PROCESS_ATTACH:
+    switch(ulReason)
+    {
+    case DLL_PROCESS_ATTACH:
         // Mutex
         g_alreadyRunning = !g_mutex.create(std::wstring(MUTEX_NAME));
-		break;
+        break;
 
-	case DLL_PROCESS_DETACH:
+    case DLL_PROCESS_DETACH:
         // Release mutex
         g_mutex.release();
-		break;
-	}
+        break;
+    }
 
-	return TRUE;
+    return TRUE;
 }

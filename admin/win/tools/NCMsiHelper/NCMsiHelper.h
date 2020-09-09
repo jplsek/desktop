@@ -92,5 +92,4 @@ HRESULT NCMSIHELPER_API DoRemoveNavigationPaneEntries(int argc, LPWSTR *argv);
  *  As a result, all functions defined in this header should
  *  conform to this function prototype.
  */
-typedef HRESULT NCMSIHELPER_API (*CUSTOM_ACTION_ARGC_ARGV)(
-    int argc, LPWSTR *argv);
+using CUSTOM_ACTION_ARGC_ARGV = NCMSIHELPER_API HRESULT(*)(int argc, LPWSTR *argv);
